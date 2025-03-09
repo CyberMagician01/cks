@@ -29,7 +29,10 @@ void Main_function(int unum,int *func)
             //draw_play(&funct_strl);
             break;
         case 4:
-            //draw_coffee(&funct_strl);
+            Readbmp64k(0, 0, "bmp\\exit.bmp");
+            delay(1500);
+            CloseSVGA();
+            exit(1);
             break;
         case 5:
             //draw_information(&funct_strl,&user);
@@ -106,7 +109,7 @@ void draw_main(int *floor)
         bar1(999,732,1024,752,0xffffff);
         Circlefill(999, 742, 10, 0xF0F8FF);
         Circlefill(999, 742, 2, 0x000000);
-        right_arrow1(910,720,960,760,0xC0C0C0);
+        right_arrow1(920,720,970,760,0xC0C0C0);
     }
 	switch (*floor)
 	{
@@ -133,30 +136,35 @@ void draw_choose(int *funct_strl,int *floor)
     while(1)
     {
         mouse_show(&mouse);
+        //查看按钮
         if(mouse_press(0,145,145,210)==1)
         {
             mouse_off(&mouse);
             *funct_strl=1;
             break;
         }
+        //出库按钮
         if(mouse_press(0,210,145,275)==1)
         {
             mouse_off(&mouse);
             *funct_strl=2;
             break;
         }
+        //入库按钮
         if(mouse_press(0,275,145,340)==1)
         {
             mouse_off(&mouse);
             *funct_strl=3;
             break;
         }
+        //退出按钮
         if(mouse_press(0,700,145,768)==1)
         {
             mouse_off(&mouse);
             *funct_strl=4;
             break;
         }
+        //电梯上按钮
         if(mouse_press(500,10,530,60)==1)
         {
             mouse_off(&mouse);
@@ -165,8 +173,8 @@ void draw_choose(int *funct_strl,int *floor)
                 (*floor)++;
             }
             *funct_strl=0;
-            break;
         }
+        //电梯下按钮
         if(mouse_press(700,10,730,60)==1)
         {
             if(*floor>=1)

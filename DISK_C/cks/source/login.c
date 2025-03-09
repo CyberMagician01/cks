@@ -165,7 +165,7 @@ void user_login(int *func,int *unum)
         {
 	        mouse_off(&mouse);
 	        strcpy(code,"\0");
-	        bar1(495,475,900,525,0xffff);
+	        bar1(495,475,1100,525,0xffff);
 	        Getcode(497,497,code,10,495,475,870,520);//µ√µΩ√‹¬Î 
 	        mouse_on(mouse);
         }

@@ -166,6 +166,10 @@ void left_arrow(int x1,int y1,int x2,int y2,int color1,int color2)
         Line_Thick(x1,(y1+y2)/2,(x2+x1)/2,y,1,color1);
     }
     bar1((x1+x2)/2,(y1*2+y2)/3,x2,(y2*2+y1)/3,color1);
+    Line2(x1,y1,x2,y1,0x000000);
+    Line2(x1,y1,x1,y2,0x000000);
+    Line2(x1,y2,x2,y2,0x000000);
+    Line2(x2,y1,x2,y2,0x000000);
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y1,0x000000);
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y2,0x000000);
     Line2((x1+x2)/2,y1,(x1+x2)/2,(y1*2+y2)/3,0x000000);
@@ -185,10 +189,7 @@ void left_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
         Line_Thick(x1,(y1+y2)/2,(x2+x1)/2,y,1,color);
     }
     bar1((x1+x2)/2,(y1*2+y2)/3,x2,(y2*2+y1)/3,color);
-    Line2(x1,y1,x2,y1,0x000000);
-    Line2(x1,y1,x1,y2,0x000000);
-    Line2(x1,y2,x2,y2,0x000000);
-    Line2(x2,y1,x2,y2,0x000000);
+
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y1,0x000000);
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y2,0x000000);
     Line2((x1+x2)/2,y1,(x1+x2)/2,(y1*2+y2)/3,0x000000);
