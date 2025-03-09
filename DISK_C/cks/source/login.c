@@ -13,8 +13,8 @@ void rigister_login(int *func)
     bar1(470,274,1024,306,0xffffff);
     bar1(470,678,1024,741,0xffffff);
     puthz(567,140,"注册",48,50,0x000000);
-    puthz(670,140,"洛邑猫咖",48,50,0x00FF);
-    draw_commoninput(480,280,"请设定您猫猫用户名");
+    puthz(670,140,"管理系统",48,50,0x00FF);
+    draw_commoninput(480,280,"请设定管理者的用户名");
     draw_commoninput(495,340,"请设定您的密码");
     draw_commoninput(495,400,"请确认您的密码");
     draw_botton(540,510,870,581,0xFFC0CB,0xADD8E6);//返回登录矩形框
@@ -22,7 +22,7 @@ void rigister_login(int *func)
     draw_botton(540,610,870,681,0xFFC0CB,0xDDDD);//立即注册矩形框
     draw_confirmbotton(573,612,"立即注册");
     prt_hz16_size(485,695, 2, 2, "已阅读并同意", 0x000000, "HZK\\HZK16s");
-    prt_hz16_size(670,695, 2, 2, "《洛邑猫咖隐私政策》", 0x00FF, "HZK\\HZK16s");
+    prt_hz16_size(670,695, 2, 2, "《管理系统隐私政策》", 0x00FF, "HZK\\HZK16s");
     mouse_on(mouse);
     while(1)
     {
@@ -135,15 +135,15 @@ void user_login(int *func,int *unum)
     bar1(470,142,1000,190,0xFFA500);
     bar1(470,274,1024,306,0xffffff);
     bar1(470,678,1024,741,0xffffff);
-    puthz(600,140,"洛邑猫咖",48,50,0x00FF);
+    puthz(600,140,"管理系统",48,50,0x00FF);
     puthz(470,300,"返回上级",32,34,0xBD32);
     Line_Thick(615,290,615,345,1,0xFFA500);
     puthz(625,300,"账户名",32,34,0x000000);
-    draw_commoninput(495,400,"请输入您猫猫用户名");
-    draw_commoninput(495,472,"请输入您的密码");
+    draw_commoninput(495,400,"请输入管理者的账号");
+    draw_commoninput(495,472,"请输入管理者的密码");
     puthz(480,535,"注册",24,24,0x0000ff);
     prt_hz16_size(485,695, 2, 2, "已阅读并同意", 0x000000, "HZK\\HZK16s");
-    prt_hz16_size(670,695, 2, 2, "《洛邑猫咖隐私政策》", 0x00FF, "HZK\\HZK16s");
+    prt_hz16_size(670,695, 2, 2, "《管理系统隐私政策》", 0x00FF, "HZK\\HZK16s");
     draw_botton(573,612,809,667,0xFFDAB9,0xFFDAB9);
     puthz(640,615,"登录",48,50,0x006400);
 
@@ -165,7 +165,7 @@ void user_login(int *func,int *unum)
         {
 	        mouse_off(&mouse);
 	        strcpy(code,"\0");
-	        bar1(495,475,900,525,0xffff);
+	        bar1(495,475,1100,525,0xffff);
 	        Getcode(497,497,code,10,495,475,870,520);//得到密码 
 	        mouse_on(mouse);
         }

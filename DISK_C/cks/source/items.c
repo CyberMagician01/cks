@@ -155,7 +155,7 @@ void down_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
     Line2((x2+x1*2)/3,y1,(x1+x2*2)/3,y1,0x000000);
 }
 
-/*//有框左箭头(第一个color1为箭头颜色，第二个color2为背景颜色)
+//有框左箭头(第一个color1为箭头颜色，第二个color2为背景颜色)
 void left_arrow(int x1,int y1,int x2,int y2,int color1,int color2)
 {
     int y=0;
@@ -163,23 +163,21 @@ void left_arrow(int x1,int y1,int x2,int y2,int color1,int color2)
     //画三角形
     for (y=y1;y<=y2;y++)
     {
-        Line_Thick(x1,(y1+y2)/2,x2,y,(y1+y2)/2,1,color1);
-    }    
-    bar1((x1+x2)/2,y1,(x1+x2)/2,y2,color1);
+        Line_Thick(x1,(y1+y2)/2,(x2+x1)/2,y,1,color1);
+    }
+    bar1((x1+x2)/2,(y1*2+y2)/3,x2,(y2*2+y1)/3,color1);
     Line2(x1,y1,x2,y1,0x000000);
     Line2(x1,y1,x1,y2,0x000000);
     Line2(x1,y2,x2,y2,0x000000);
     Line2(x2,y1,x2,y2,0x000000);
-    Line2((x1+x2)/2,y1,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x2,(y1+y2)/2,0x000000);
+    Line2(x1,(y1+y2)/2,(x1+x2)/2,y1,0x000000);
+    Line2(x1,(y1+y2)/2,(x1+x2)/2,y2,0x000000);
+    Line2((x1+x2)/2,y1,(x1+x2)/2,(y1*2+y2)/3,0x000000);
+    Line2((x1+x2)/2,(y1*2+y2)/3,x2,(y1*2+y2)/3,0x000000);
+    Line2(x2,(y1*2+y2)/3,x2,(y2*2+y1)/3,0x000000);
+    Line2((x1+x2)/2,(y2*2+y1)/3,x2,(y2*2+y1)/3,0x000000);
+    Line2((x1+x2)/2,(y2*2+y1)/3,(x1+x2)/2,y2,0x000000);
 }
-    */
 
 //无框左箭头
 void left_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
@@ -191,6 +189,7 @@ void left_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
         Line_Thick(x1,(y1+y2)/2,(x2+x1)/2,y,1,color);
     }
     bar1((x1+x2)/2,(y1*2+y2)/3,x2,(y2*2+y1)/3,color);
+
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y1,0x000000);
     Line2(x1,(y1+y2)/2,(x1+x2)/2,y2,0x000000);
     Line2((x1+x2)/2,y1,(x1+x2)/2,(y1*2+y2)/3,0x000000);
@@ -201,7 +200,7 @@ void left_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
    
 }
 
-/*//有框右箭头(第一个color1为箭头颜色，第二个color2为背景颜色)
+//有框右箭头(第一个color1为箭头颜色，第二个color2为背景颜色)
 void right_arrow(int x1,int y1,int x2,int y2,int color1,int color2)
 {
     int y=0;
@@ -209,23 +208,22 @@ void right_arrow(int x1,int y1,int x2,int y2,int color1,int color2)
     //画三角形
     for (y=y1;y<=y2;y++)
     {
-        Line_Thick(x2,(y1+y2)/2,x1,y,(y1+y2)/2,1,color1);
+        Line_Thick(x2,(y1+y2)/2,(x2+x1)/2,y,1,color1);
     }
-    bar1((x1+x2)/2,y1,(x1+x2)/2,y2,color1);
+    bar1(x1,(y1*2+y2)/3,(x1+x2)/2,(y2*2+y1)/3,color1);
     Line2(x1,y1,x2,y1,0x000000);
     Line2(x1,y1,x1,y2,0x000000);
     Line2(x1,y2,x2,y2,0x000000);
     Line2(x2,y1,x2,y2,0x000000);
-    Line2((x1+x2)/2,y1,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x1,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y1,x2,(y1+y2)/2,0x000000);
-    Line2((x1+x2)/2,y2,x1,(y1+y2)/2,0x000000);
+    Line2(x2,(y1+y2)/2,(x1+x2)/2,y1,0x000000);
+    Line2(x2,(y1+y2)/2,(x1+x2)/2,y2,0x000000);
+    Line2((x1+x2)/2,y1,(x1+x2)/2,(y1*2+y2)/3,0x000000);
+    Line2((x1+x2)/2,(y1*2+y2)/3,x1,(y1*2+y2)/3,0x000000);
+    Line2(x1,(y1*2+y2)/3,x1,(y2*2+y1)/3,0x000000);
+    Line2((x1+x2)/2,(y2*2+y1)/3,x1,(y2*2+y1)/3,0x000000);
+    Line2((x1+x2)/2,(y2*2+y1)/3,(x1+x2)/2,y2,0x000000);
 }
-*/
+
 //无框右箭头
 void right_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
 {

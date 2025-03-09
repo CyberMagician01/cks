@@ -40,9 +40,13 @@ void draw_basic_logging()
 	Circlefill(380, 240, 60, 0xBDBD00);
 	Circlefill(675, 105, 35, 0x00BD2E);
 	//draw_workbox();
-	Readbmp64k(0, 0, "bmp\\cattt.bmp");
+	Readbmp64k(0, 0, "bmp\\logoo.bmp");
 
-	puthz(470, 230, "物品登记|自动入库|订单分配|包装出库", 32, 27, 0xFFD700);
+	puthz(500, 230, "物品登记", 32, 27, 0x000000);
+	puthz(630, 230, "自动入库", 32, 27, 0x000000);
+	puthz(760, 230, "订单分配", 32, 27, 0x000000);
+	puthz(890, 230, "包装出库", 32, 27, 0x000000);
+	
 }
 
 void draw_botton(int x1,int y1,int x2,int y2,int Cowercolor,int Bordercolor)
@@ -56,8 +60,8 @@ void draw_botton(int x1,int y1,int x2,int y2,int Cowercolor,int Bordercolor)
 void draw_welcome()
 {
     //标题
-	puthz(490,140,"欢迎来到", 48,50, 0x800080);
-	puthz(690,140,"《武汉市立体仓储管理中心》", 48,50, 0x00FF);
+	puthz(660,50,"欢迎来到", 48,50, 0x800080);
+	puthz(490,140,"《武汉市立体仓储管理中心》", 32,40, 0x00FF);
 
 	//选项框
     draw_botton(535,393,855,487,0xFFC0CB,0xADD8E6);//登录矩形框
