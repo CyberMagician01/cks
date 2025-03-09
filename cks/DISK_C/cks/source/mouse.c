@@ -154,7 +154,7 @@ void MouseSet(int x,int y)
 	mouse_on(mouse);               //画鼠标	
 }
 
-/***判断鼠标是否在指定区域内部***
+// ***判断鼠标是否在指定区域内部***
 int MouseIn(int x1, int y1, int x2, int y2)
 { 
 	MOUSE mouse = {0,0,0};                       //very important，设置一个鼠标结构，用来减少对主鼠标结构的调用 
@@ -171,7 +171,7 @@ int MouseIn(int x1, int y1, int x2, int y2)
 		return 0;
 	}
 }
-**************************************************/
+// **************************************************/
 
 /***判断鼠标左键是否在指定区域内按下***/
 int mouse_press(int x1, int y1, int x2, int y2)

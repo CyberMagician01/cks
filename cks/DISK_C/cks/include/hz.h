@@ -36,7 +36,7 @@ void Read_Asc16(char key,unsigned char *buf);
 /*调用asc16输出字符*/
 void Put_Asc16(int cx,int cy,char key,unsigned int color);
 
-/*调用asc16输出放大字符*/
+// /*调用asc16输出放大字符*/打英文好用
 void Put_Asc16_Size(int cx,int cy,int xsize,int ysize,char key,unsigned int color);
 
 /*显示放大后的数字*/
@@ -45,7 +45,7 @@ void put_asc16_number_size(int x,int y,int xsize,int ysize,int n,unsigned int co
 /*显示放大后的数字,l为覆盖长度*/
 void put_asc16_number_size_coverd(int x,int y,int xsize,int ysize,int l,int n,unsigned int color );
 
-/*调用asc16输出放大字符串*/
+// /*调用asc16输出放大字符串*/打英文好用
 void put_asc16_size(int cx,int cy,int xsize,int ysize,char *s,unsigned int color );
 
 /*输出既有16*xsize*16*ysize汉字又有16*xsize*16*ysize asc字符的字符串函数，x,y表示汉字输出位置，

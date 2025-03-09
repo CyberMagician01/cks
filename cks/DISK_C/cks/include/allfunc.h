@@ -26,6 +26,9 @@
 #include "funct1.h"
 #include "funct5.h"
 #include "items.h"
+#include "search.h"
+#include "out.h"
+#include "in.h"
 
 #define NUM0 0x5230
 #define NUM1 0x4f31

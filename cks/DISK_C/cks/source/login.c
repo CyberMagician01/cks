@@ -176,7 +176,7 @@ void user_login(int *func,int *unum)
 	        {
 	    	    *unum=i;
 		        DestroyUList(&UL);
-    		    *func=5;      //进入主界面
+    		    *func=4;      //进入主界面
                 break;
 	        }
 	         if(i==-2)//密码输入错误 

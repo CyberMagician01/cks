@@ -242,6 +242,42 @@ void right_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
     Line2((x1+x2)/2,(y1*2+y2)/3,x1,(y1*2+y2)/3,0x000000);
     Line2(x1,(y1*2+y2)/3,x1,(y2*2+y1)/3,0x000000);
     Line2((x1+x2)/2,(y2*2+y1)/3,x1,(y2*2+y1)/3,0x000000);
-    Line2((x1+x2)/2,(y2*2+y1)/3,(x1+x2)/2,y2,0x000000);
-    
+    Line2((x1+x2)/2,(y2*2+y1)/3,(x1+x2)/2,y2,0x000000);    
+}
+void draw_guizi2(int number,int x1,int y1) {
+    int x2, y2, x3, y3, x4, x5;
+    y2 = y1 + 70;
+    x2 = x1 + 180;
+    y3=(y1+y2)/2;
+    x3=(x1+x2)/2;
+    x4=(x1+x3)/2;
+    x5=(x3+x2)/2;
+    bar1(x1, y1, x2, y2, 0x6A5ACD);
+    Line2(x1, y3, x2, y3, 0x000000);
+    Line2(x3, y1, x3, y2, 0x000000);
+    Line2(x4, y1, x4, y2, 0x000000);
+    Line2(x5, y1, x5, y2, 0x000000);
+    if(number!=0){
+    puthz(x5, y1-15, "·´",16,16, 0x000000);
+    puthz(x5, y2+5, "Õý",16,16, 0x000000);
+    Circlefill(x1,y1-22,20,0xF5F5F5);
+    }
+    if(number==1){
+    put_asc16_size(x1-10,y1-30,2,2,"1",0x000000);
+    }
+    else if(number==2){
+    put_asc16_size(x1-10,y1-30,2,2,"2",0x000000);
+    }
+    else if(number==3){ 
+    put_asc16_size(x1-10,y1-30,2,2,"3",0x000000);
+    }
+    else if(number==4){
+    put_asc16_size(x1-10,y1-30,2,2,"4",0x000000);
+    }
+    else if(number==5){
+    put_asc16_size(x1-10,y1-30,2,2,"5",0x000000);
+    }
+    else if(number==6){
+    put_asc16_size(x1-10,y1-30,2,2,"6",0x000000);
+    }
 }

@@ -2,7 +2,7 @@
 
 void main()
 {      
-	int func = 0;
+	int func = 4;
 	int unum = 0;
    SetSVGA64k();//启动SVGA画图界面
 
@@ -15,21 +15,24 @@ void main()
 		case 0:
 			welcome(&func);
 			break;
-		
+		case 1:
+		    CloseSVGA();
+			exit(0);
+			break;
 		case 2:
 			user_login(&func,&unum);
 			break;
 		case 3:
 			rigister_login(&func);
 			break;
-		case 5:
+		case 4:
 			Main_function(unum,&func);
 			break;
 		default:
 			break;
 		}
 	}
-	CloseSVGA();//关闭图形界面 
+	 CloseSVGA();//关闭图形界面 
 }
 
 //有疑问可找

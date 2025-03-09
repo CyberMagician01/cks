@@ -4,13 +4,13 @@ void Main_function(int unum,int *func)
 {
     int funct_strl=0;
     int floor=1;
-    USER user={0};            //用户
-    UserList UL={0};          //线性表
-    InitUList(&UL);           //创建线性表
-    ReadAllUser(&UL);         //获取所有用户  
-    user=UL.elem[unum];       //得到当前用户 
+    // USER user={0};            //用户
+    // UserList UL={0};          //线性表
+    // InitUList(&UL);           //创建线性表
+    // ReadAllUser(&UL);         //获取所有用户  
+    // user=UL.elem[unum];       //得到当前用户 
 
-    DestroyUList(&UL);        //销毁线性表 
+    // DestroyUList(&UL);        //销毁线性表 
 
     while(1)
     {
@@ -19,34 +19,28 @@ void Main_function(int unum,int *func)
         case 0:
             draw_choose(&funct_strl,&floor);
             break;
-        case 1:
-            //draw_cat(&funct_strl,&user);
+        case 1://查看
+            search_page(&funct_strl);
             break;
-        case 2:
-            //draw_feed(&funct_strl);
+        case 2://出库
+            out_page(&funct_strl);
             break;
-        case 3:
-            //draw_play(&funct_strl);
+        case 3://入库
+            in_page(&funct_strl);
             break;
-        case 4:
-            //draw_coffee(&funct_strl);
+        case 4://退出
+            *func=1;
             break;
         case 5:
             //draw_information(&funct_strl,&user);
             break;
-        case -1:
-        {
-            *func=0;
-            break;
         }
-        }
-        if(*func==0)
+        if(*func==1)
         {
             break;
         }
     }
 }
-
 //画主界面
 void draw_main(int *floor)
 {
@@ -133,25 +127,35 @@ void draw_choose(int *funct_strl,int *floor)
     while(1)
     {
         mouse_show(&mouse);
-        if(mouse_press(0,145,145,210)==1)
+        if(mouse_press(0,145,145,210)==1)//查看
         {
             mouse_off(&mouse);
             *funct_strl=1;
             break;
         }
-        if(mouse_press(0,210,145,275)==1)
+        if(mouse_press(0,210,145,275)==1)//出库
         {
             mouse_off(&mouse);
             *funct_strl=2;
             break;
         }
-        if(mouse_press(0,275,145,340)==1)
+        // {
+        //     mouse_off(&mouse);
+        //     *funct_strl=2;
+        //     break;
+        // }
+        if(mouse_press(0,275,145,340)==1)//入库
         {
             mouse_off(&mouse);
             *funct_strl=3;
             break;
         }
-        if(mouse_press(0,700,145,768)==1)
+        // {
+        //     mouse_off(&mouse);
+        //     *funct_strl=3;
+        //     break;
+        // }
+        if(mouse_press(0,700,145,768)==1)//退出
         {
             mouse_off(&mouse);
             *funct_strl=4;
