@@ -139,22 +139,12 @@ void draw_choose(int *funct_strl,int *floor)
             *funct_strl=2;
             break;
         }
-        // {
-        //     mouse_off(&mouse);
-        //     *funct_strl=2;
-        //     break;
-        // }
         if(mouse_press(0,275,145,340)==1)//入库
         {
             mouse_off(&mouse);
             *funct_strl=3;
             break;
         }
-        // {
-        //     mouse_off(&mouse);
-        //     *funct_strl=3;
-        //     break;
-        // }
         if(mouse_press(0,700,145,768)==1)//退出
         {
             mouse_off(&mouse);
@@ -164,12 +154,13 @@ void draw_choose(int *funct_strl,int *floor)
         //电梯上按钮
         if(mouse_press(500,10,530,60)==1)
         {
-            mouse_off(&mouse);
             if(*floor<=1)
             {
                 (*floor)++;
             }
+            mouse_off(&mouse);
             *funct_strl=0;
+            break;
         }
         //电梯下按钮
         if(mouse_press(700,10,730,60)==1)
