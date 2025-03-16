@@ -1,16 +1,24 @@
 #include "allfunc.h"
-void out_page(int *funct_strl);
+void out_page(int *funct_strl,char *s);
 void draw_out_page(void);
-void out_page(int *funct_strl) {
+void out_page(int *funct_strl,char *s){
+    int len=10;
     mouse_off(&mouse);
     draw_out_page();
     mouse_on(mouse);
     while (1) {
         mouse_show(&mouse);
-        if (mouse_press(964, 0, 1024, 60) == 1) {
+        if (mouse_press(964, 0, 1024, 60) == 1) {//ÍË³ö¼ü
             mouse_off(&mouse);
             *funct_strl = 0;
             break;
+        }
+        if (mouse_press(190,135,805,215) == 1) {//ËÑË÷¼ü
+            mouse_off(&mouse);
+            bar1(200,170,800,210,0xFFFFFF);
+            hzinput(200,170);
+            mouse_on(mouse);
+            break;   
         }
     }  
 }
@@ -21,7 +29,7 @@ void draw_out_page(void){
 	Line_Thick(974, 15, 1014, 45,3,0x6A5ACD);
 	Line_Thick(974, 45, 1014, 15,3,0x6A5ACD);
     puthz(25, 25, "³ö¿â", 32, 33, 0x000000);
-    bar2(115,135,805,215,0x000000);
+    bar2(115,135,805,215,0x000000);//ÊäÈë¿ò
     Line2(190,135,190,215,0x000000);
     Line2(155,175,180,200,0x000000);
     Circle(155,175,20,0x000000);

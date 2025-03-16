@@ -29,6 +29,7 @@
 #include "search.h"
 #include "out.h"
 #include "in.h"
+#include "input.h"
 
 #define NUM0 0x5230
 #define NUM1 0x4f31
@@ -50,13 +51,8 @@
 #define F9 0x4300
 #define F10 0x4400
 #define F1 0x3b00
-#define ENTER 0x1c0d
-#define BACK 0x0e08
-#define ESC 0x011b
 #define UP 0x4800
 #define DOWN 0x5000
-#define RIGHT 0x4d00
-#define LEFT 0x4b00
 #define ONE 0x0231
 #define TWO 0x0332
 #define THREE 0x0433
