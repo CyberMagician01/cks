@@ -64,6 +64,10 @@
     "bmp.h": "c",
     "SVGA.H": "cpp",
     "BMP.H": "cpp",
-    "mouse.h": "c"
+    "mouse.h": "c",
+    "hz.h": "c",
+    "data.h": "c",
+    "cre_rob.h": "c",
+    "items.h": "c"
   }
 }

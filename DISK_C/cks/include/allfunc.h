@@ -29,6 +29,8 @@
 #include "search.h"
 #include "out.h"
 #include "in.h"
+#include "data.h"
+#include "cre_rob.h"
 
 #define NUM0 0x5230
 #define NUM1 0x4f31

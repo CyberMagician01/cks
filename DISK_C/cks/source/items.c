@@ -242,6 +242,7 @@ void right_arrow1(int x1,int y1,int x2,int y2,unsigned int color)
     Line2((x1+x2)/2,(y2*2+y1)/3,x1,(y2*2+y1)/3,0x000000);
     Line2((x1+x2)/2,(y2*2+y1)/3,(x1+x2)/2,y2,0x000000);    
 }
+
 void draw_guizi2(int number,int x1,int y1) {
     int x2, y2, x3, y3, x4, x5;
     y2 = y1 + 70;
@@ -278,4 +279,30 @@ void draw_guizi2(int number,int x1,int y1) {
     else if(number==6){
     put_asc16_size(x1-10,y1-30,2,2,"6",0x000000);
     }
+}
+
+//»­°ü¹ü
+void draw_goods(int x,int y)
+{
+    int x1=0;
+    for(x1=0;x1<=10;x1++)
+    {
+        Line_Thick(x+10,y+0,x+x1,y+11,1,0xADFF2F);
+    }
+    for(x1=41;x1<=51;x1++)
+    {
+        Line_Thick(x+41,y+0,x+x1,y+11,1,0xADFF2F);
+    }
+
+    bar1(x+10,y+0,x+41,y+11,0xADFF2F);
+    bar1(x+0,y+11,x+51,y+36,0x32CD32);
+    bar1(x+1,y+12,x+50,y+35,0xADFF2F);
+    bar1(x+32,y+27,x+49,y+33,0x32CD32);
+    bar1(x+33,y+28,x+48,y+32,0xffffff);
+
+    Line_Thick(x+0,y+11,x+10,y+0,1,0x32CD32);
+    Line_Thick(x+10,y+0,x+41,y+0,1,0x32CD32);
+    Line_Thick(x+41,y+0,x+51,y+11,1,0x32CD32);
+    Line_Thick(x+5,y+5,x+46,y+5,1,0x32CD32);
+    
 }
