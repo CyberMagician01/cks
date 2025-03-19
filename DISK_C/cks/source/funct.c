@@ -4,6 +4,7 @@ void Main_function(int unum,int *func)
 {
     int funct_strl=0;
     int floor=1;
+    char s[100];
     //冷库机器人
     ROBOT rob1;
     //1F机器人
@@ -29,7 +30,7 @@ void Main_function(int unum,int *func)
             search_page(&funct_strl);
             break;
         case 2://出库
-            out_page(&funct_strl);
+            out_page(&funct_strl,s);
             break;
         case 3://入库
             in_page(&funct_strl);
