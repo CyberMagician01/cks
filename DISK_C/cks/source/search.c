@@ -109,6 +109,7 @@ void draw_search_page(void) {
     put_asc16_size(760, 50, 2, 2, "3F", 0x000000);
 }
 void lightup(int x1, int y1,int y2) {
+    mouse_off(&mouse);
     bar1(x1, y1, x1+180, y1+35, 0xFFFFE0);
     delay(200);
     draw_guizi2(0, x1, y2);
