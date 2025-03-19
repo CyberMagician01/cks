@@ -4,7 +4,12 @@ void Main_function(int unum,int *func)
 {
     int funct_strl=0;
     int floor=1;
-    char s[100]={0};
+    //冷库机器人
+    ROBOT rob1;
+    //1F机器人
+    ROBOT rob2;
+    //2F机器人
+    ROBOT rob3;
     // USER user={0};            //用户
     // UserList UL={0};          //线性表
     // InitUList(&UL);           //创建线性表
@@ -24,7 +29,7 @@ void Main_function(int unum,int *func)
             search_page(&funct_strl);
             break;
         case 2://出库
-            out_page(&funct_strl,s);
+            out_page(&funct_strl);
             break;
         case 3://入库
             in_page(&funct_strl);
@@ -48,6 +53,7 @@ void draw_main(int *floor)
     int x=0,y=0;
 	bar1(0,0,1024,768,0xF5F5DC);
 	bar1(0,0,145,768,0xffffff);
+    
 	//logo
 	Readbmp64k(0, 0, "bmp\\sign.bmp");
 	down_arrow(0,343,142,697,0xFFB366,0x8B4513);
