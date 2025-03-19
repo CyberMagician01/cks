@@ -9,13 +9,8 @@ RETURN:1:输出汉字；2：输出字母；3：输出空格
 ************************************************************************/
 void hzinput(int x, int y){
 	int value= 0, asc,len=0;
-	int buf[20]={0};
 	char str[64] = {0}; // 用于临时存放刚输入的东西
 	char py[64] = {0};	// 存放拼音字符串或英文字符串
-	// if (disabled)
-	// {
-	// 	return;
-	// }
 	while (bioskey(1)) // 清除键盘缓冲区  防止误输入
 	{
 		bioskey(0);
@@ -25,63 +20,26 @@ void hzinput(int x, int y){
 		if (kbhit())
 		{
 			value = bioskey(0);
-
 			if (value == ENTER)
 			{
 				break;
 			}
 			else if (value == BACK && len > 0)
 			{
-				// if (buf[len-1]==1) // 是汉字
-				// {
-				// 	//clear
-				// 	//bar1(x, y + height, x + 16, y + height + 40, WHITE);
-				// 	len -= 1;
-				// }
-				// else if(buf[len-1]==2) // 是ASCII字符
-				// {
-				// 	len -= 1;
-				// }
-				bar1(x+len*16, y , x + (len+1)*16, y + height, WHITE);//还要改
+				bar1(x+len*16, y , x + (len+1)*16, y + height,0xFFFFFF);//还要改
 				len-=1;
 				continue;
 			}
-			// if (len >= bufSize - 2)
-			// {
-			// 	DrawMouse();
-			// 	continue;
-			// }
 			asc = value & 0xff;
 			if (asc >= 97 && asc <= 122)//打字母
 			{
-				//img.getImage(x, y + height, x + 200, y + height + 40);
-
-				pyFrm(x, y + height, x + 200, y + height + 40);
+				pyFrm(x, y + height, x + width, y + height +60);
 				input_method(x, y + height, str, value, py);
 				len++;
-
-				//img.putImage(x, y + height);
-
-				// strncat(buf + len, str, bufSize - len - 1);
-				// len = strlen(buf); // 不写成len+=strlen(str),因为str可能超出，此时不会复制全部的str
-				// buf[len] = '\0';   // 避免strncat超出时不加\0
-
 				memset(py, '\0', 64);
 				memset(str, '\0', 64);
 			}
-			// else//打其他字符
-			// {
-			// 	buf[len++] = asc;
-			// 	buf[len] = '\0';
-			// }
-			// this->draw();
 		}
-
-		// if (ClickLeftButton() && !MouseInRect(x, y, x + width, y + height))
-		// {
-		// 	break;
-		// }
-		// mouse_on();
 		delay(40);
 	}
 }
@@ -89,8 +47,9 @@ int input_method(int x, int y, char *str, int value, char *py)
 {
 	FILE *fp = NULL, *oldfp = NULL;
 	int fJudge = FAIL;
-	char *p = py;
-	int trigger = 1; // 进入时触发输入标志
+	int help=1;
+	// char *p = py;
+	int p = 0;
 	char temphz[5][3] = {{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}}, temp[3];
 	int fposition = 0;
 	int hznow = 0, hznum = 0;
@@ -103,21 +62,21 @@ int input_method(int x, int y, char *str, int value, char *py)
 	strcpy(pypath, "pinyin\\");
 	while (1)
 	{
-	    //update_mouse();
-		if (trigger || kbhit()) // 第一次进入自动触发 以后均需键盘
+		if (help||kbhit()) // 第一次进入自动触发 以后均需键盘
 		{
-			// clrmous(MouseX,MouseY);
-			//UpdateMouse();
-			trigger = 0;
-			if (kbhit())
-				value = bioskey(0);
+			help=0;
+			value = bioskey(0);
 			asc = value & 0xff;
-			/*特殊按键处理*/
 			switch (value)
 			{
 			case BACK:
+				if (p > 0)
+				{
+				bar1(PyStartx+p*16, PyStarty, PyStartx + (p+1)*16, PyStarty + 16,0xFFFFFF);
 				p--;
-				*p = '\0';
+				py[p]= '\0';
+				
+				}
 				if (py[0] == '\0')
 				{
 					str[0] = '\0';
@@ -137,7 +96,6 @@ int input_method(int x, int y, char *str, int value, char *py)
 				return 1;
 			case ENTER:
 				strcpy(str, py);
-			//case SHRT_MAX
 				if (oldfp)
 					fclose(oldfp);
 				if (fp)
@@ -207,21 +165,13 @@ int input_method(int x, int y, char *str, int value, char *py)
 					fclose(fp);
 				return 1;
 			}
-			
-			/*输入字符处理*/
 			if (asc > 31 && asc < 127 && strlen(py) < MAXPY && asc != '[' && asc != ']') // 有效输入时则复位
 			{
-				*p = asc;
+				py[p]= asc;
 				p++;
 				fposition = 0;
 				hznow = 0;
 			}
-			pyFrm(x, y, x + 200, y + 40);
-			//setfillstyle(1, WHITE);
-			//settextstyle(1, 0, 2);
-			//settextjustify(LEFT_TEXT, CENTER_TEXT);
-			//outtextxy(PyStartx, PyStarty, py); // 拼音字体
-			//drawtext(PyStartx, PyStarty, py, 16, BLUE);
 			put_asc16_size(PyStartx, PyStarty, 2, 2, py, BLUE);
 			strcat(pypath, py);
 			strcat(pypath, ".txt");
@@ -260,19 +210,14 @@ int input_method(int x, int y, char *str, int value, char *py)
 				}
 				for (i = 0; i < hznum; i++)
 				{
-					//setcolor(BLUE);
-					//settextstyle(1, 0, 2);
-					//xouttextxy(HzStartx + i * 50, HzStarty + 5, itostr(i + 1, temp), DARKGRAY);
 					put_asc16_size(HzStartx + i * 50, HzStarty + 5, 2, 2, itostr(i + 1, temp), DARKGRAY);
 					puthz(HzStartx+i*50+16,HzStarty,temphz[i],16,16,DARKGRAY);
-					//drawtext(HzStartx + i * 50 + 16, HzStarty, temphz[i], 16, DARKGRAY);
 				}
-				puthz(HzStartx + hznow * 50 + 16, HzStarty, temphz[hznow], 16, 16, CYAN); // 显示选中汉字
+				puthz(HzStartx + hznow * 50 + 16, HzStarty, temphz[hznow], 16, 16, 0xFFFAFA); // 显示选中汉字
 			}
 		}
 		strcpy(pypath, ABpath); // 绝对路径复原（不可少）
 		value = 0;
-		// DrawMouse();
 		delay(40);
 	}
 }
@@ -313,8 +258,8 @@ RETURN:无
 
 void pyFrm(int x1, int y1, int x2, int y2)
 {
-	bar1(x1, y1, x2, y2, WHITE);
-	Line2(x1 + 5, y1 + 20, x2 - 5, y1 + 20, BLUE);
+	bar1(x1, y1, x2, y2,0xFFFFFF);
+	Line2(x1 + 5, y1 + 40, x2 - 5, y1 + 40, BLUE);
 	bar2(x1, y1, x2, y2, DARKGRAY);
 }
 
