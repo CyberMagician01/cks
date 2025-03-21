@@ -39,7 +39,7 @@ void Main_function(int unum,int *func)
             *func=1;
             break;
         case 5:
-            //draw_information(&funct_strl,&user);
+            remote_robot(100,50,0,0,&floor,&funct_strl);
             break;
         }
         if(*func==1)
@@ -57,7 +57,8 @@ void draw_main(int *floor)
     
 	//logo
 	Readbmp64k(0, 0, "bmp\\sign.bmp");
-	down_arrow(0,343,142,697,0xFFB366,0x8B4513);
+    draw_robot(70,410,0,0);
+	down_arrow(0,470,142,697,0xFFB366,0x8B4513);
 	//查看按钮
 	bar1(0,145,145,210,0xCD5C5C);
 	puthz(15,157, "查看", 48, 55, 0x000000);
@@ -125,6 +126,7 @@ void draw_main(int *floor)
 	}
 	
 	down_arrow(700,10,730,60,0xAFDFE4,0x00477D);
+
 }
 
 void draw_choose(int *funct_strl,int *floor)
@@ -151,6 +153,12 @@ void draw_choose(int *funct_strl,int *floor)
         {
             mouse_off(&mouse);
             *funct_strl=3;
+            break;
+        }
+        if(mouse_press(0,340,145,470)==1)//远程控制
+        {
+            mouse_off(&mouse);
+            *funct_strl=5;
             break;
         }
         if(mouse_press(0,700,145,768)==1)//退出

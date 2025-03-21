@@ -9,7 +9,7 @@ void cre_rob(ROBOT *robot,int floor)
 
 }
 
-//画机器人
+//画不规则机器人
 void draw_robot(int x,int y,int state,int direction)//x=50,y=50
 {
     int x1=0;
@@ -65,5 +65,69 @@ void draw_robot(int x,int y,int state,int direction)//x=50,y=50
     {
         draw_goods(x-25,y-50);
     }
-
 }
+
+
+//遥控机器人
+void remote_robot(int x,int y,int state,int direction,int *floor,int *funct_strl)
+{
+
+    while(1)
+    {
+        int x1=0;
+        int y1=0;
+        x1=x;
+        y1=y;
+        if(kbhit())
+            switch(getch())
+            {
+                case 'w':
+                    direction=0;
+                    if(direction==0)
+                    {
+                        y-=5;
+                    }
+                    continue;
+                case's':
+                    direction=1;
+                    if(direction==1)
+                    {
+                        y+=5;
+                    }
+                    continue;
+                case 'a':
+                    direction=2;
+                    if(direction==2)
+                    {
+                        x-=5;
+                    }
+                    continue;
+                case 'd':
+                    direction=3;
+                    if(direction==3)
+                    {
+                        x+=5;
+                    }
+                    continue;
+                case 'q':
+                    *funct_strl=1;
+                    break;
+            }
+        if(x1!=x||y1!=y)
+            draw_main(floor);
+        
+        draw_robot(x,y,state,direction);
+        delay(500);
+    }
+}
+
+/*//画机器人简易版
+void draw_robot_simple(int x,int y,int state,int direction)//x=50,y=50
+{
+    bar1(x-30,y-30,x+30,y+30,0xFAF0E6);
+    //画包裹
+    if(state!=0||state!=1)
+    {
+        draw_goods(x-25,y-50);
+    }
+}*/

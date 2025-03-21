@@ -23,8 +23,6 @@
 #include "login.h"
 #include "funct.h"
 #include "button.h"
-#include "funct1.h"
-#include "funct5.h"
 #include "items.h"
 #include "search.h"
 #include "out.h"

@@ -68,6 +68,7 @@
     "hz.h": "c",
     "data.h": "c",
     "cre_rob.h": "c",
-    "items.h": "c"
+    "items.h": "c",
+    "input.h": "c"
   }
 }
